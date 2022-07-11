@@ -5,7 +5,7 @@ Downloader for Facebook ads archive for Media Analytics Tool project.
 ## Development
 ### Installation & test run
 ```bash
-git clone git@github.com:zabkwak/mat-facebook-downloader.git
+git clone git@github.com:lvtffuk/mat-facebook-downloader.git
 cd mat-facebook-downloader
 npm install
 npm start
@@ -58,9 +58,9 @@ The `countries` are comma separated country codes and `searchTerm` is the term t
 The output is stored in `Apache Parquet` file in the output directory as `archive.parquet`.
 
 ## Docker
-The [image](https://github.com/zabkwak/mat-facebook-downloader/pkgs/container/mat-facebook-downloader) is stored in GitHub packages registry and the app can be run in the docker environment.
+The [image](https://github.com/lvtffuk/mat-facebook-downloader/pkgs/container/mat-facebook-downloader) is stored in GitHub packages registry and the app can be run in the docker environment.
 ```bash
-docker pull ghcr.io/zabkwak/mat-facebook-downloader:latest
+docker pull ghcr.io/lvtffuk/mat-facebook-downloader:latest
 ```
 
 ```bash
@@ -71,7 +71,7 @@ docker run \
 -e 'OUT_DIR=./output' \
 -v '/absolute/path/to/output/dir:/usr/src/app/output' \
 -v '/absolute/path/to/input/dir:/usr/src/app/input' \
-ghcr.io/zabkwak/mat-facebook-downloader:latest  
+ghcr.io/lvtffuk/mat-facebook-downloader:latest  
 ```
 The volumes must be set for accessing input and output data.
 
