@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
 import qs from 'querystring';
+import { stringifyQueryString } from '../utils';
 import { Fields } from './typings/enums';
 import { IAdsArchiveItem, IExchangeTokenResponse, IPagingResponse } from './typings/interfaces';
 
@@ -110,20 +111,6 @@ export default class Facebook {
 		if (Object.keys(params).length === 0) {
 			return url;
 		}
-		return `${url}?${this._stringifyQueryString(params)}`;
-	}
-
-	private _stringifyQueryString(params: Record<string, any>): string {
-		return Object.entries(params)
-			.map(([key, value]) => {
-				if (value) {
-					return `${key}=${value}`;
-				}
-				if (value === '') {
-					return `${key}=''`;
-				}
-			})
-			.filter(Boolean)
-			.join('&');
+		return `${url}?${stringifyQueryString(params)}`;
 	}
 }
