@@ -110,6 +110,20 @@ export default class Facebook {
 		if (Object.keys(params).length === 0) {
 			return url;
 		}
-		return `${url}?${qs.stringify(params)}`;
+		return `${url}?${this._stringifyQueryString(params)}`;
+	}
+
+	private _stringifyQueryString(params: Record<string, any>): string {
+		return Object.entries(params)
+			.map(([key, value]) => {
+				if (value) {
+					return `${key}=${value}`;
+				}
+				if (value === '') {
+					return `${key}=''`;
+				}
+			})
+			.filter(Boolean)
+			.join('&');
 	}
 }
